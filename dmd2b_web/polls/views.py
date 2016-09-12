@@ -38,6 +38,10 @@ class Header(generic.ListView):
     def get_queryset(self):
         return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE')
 
+class StudyView(generic.DetailView):
+    model = PatientDetails
+    context_object_name = 'object_list'
+
 class HeaderView(generic.FormView): # HeaderView is linked with the form HeaderForm
     form_class = HeaderForm
     model = AdditionalHeaderInfo

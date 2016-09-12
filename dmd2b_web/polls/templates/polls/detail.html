@@ -6,6 +6,7 @@
 
 <form action="/polls/3/" method="GET">
 {% csrf_token %}
+{{form.as_ul}}
 <input type="search" name="q" placeholder="Your search">
 <input type="submit" value="Search"/>
 </form>
