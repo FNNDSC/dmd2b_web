@@ -10,26 +10,26 @@ from django.db.models import Q
 from polls.models import PatientDetails, StudyDetails, SeriesDetails, AdditionalHeaderInfo
 from polls.form import *
 
-class PatientView(generic.ListView):
+class Patient(generic.ListView):
     #model = PatientDetails
     template_name = 'polls/patient.html'
     context_object_name = 'object_list'
     def get_queryset(self):
         return PatientDetails.objects.order_by('-PatientBirthDate')
 
-class StudyView(generic.ListView):
+class Study(generic.ListView):
     #model = PatientDetails
     template_name = 'polls/study.html'
     context_object_name = 'object_list'
     def get_queryset(self):
         return StudyDetails.objects.filter(StudyDescription__contains='MR-Brain w/o Contrast').order_by('-StudyDate')
 
-class SeriesView(generic.ListView):
+class Series(generic.ListView):
     #model = SeriesDetails
     template_name = 'polls/serie.html'
     context_object_name = 'object_list'
     def get_queryset(self):
-        return SeriesDetails.objects.filter(SeriesDescription__contains='DTI 35 DIR B1000 MATRIX128_EXP')
+        return SeriesDetails.objects.filter(SeriesDescription__contains='FUJI Basic Text SR for HL7 Radiological Report')
 
 class Header(generic.ListView):
     #model = AdditionalHeaderInfo
@@ -42,4 +42,18 @@ class HeaderView(generic.FormView):
     form_class = HeaderForm
     model = AdditionalHeaderInfo
     template_name = 'polls/detail.html'
-    sucess_url = '/admin/polls/additionalheaderinfo/'
+    sucess_url = '/polls/search/'
+
+def search(request):
+    query_string = ''
+    found_entries = None
+    if ('q' in request.GET) and request.GET['q'].strip():
+        query_string = request.GET['q']
+
+        entry_query = get_query(query_string, ['PatientID',])
+
+        found_entries = Entry.objects.filter(entry_query).order_by('-PatientID')
+
+    return render_to_response('polls/results.html',
+                          { 'query_string': query_string, 'found_entries': found_entries },
+                          context_instance=RequestContext(request))
