@@ -38,22 +38,8 @@ class Header(generic.ListView):
     def get_queryset(self):
         return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE')
 
-class HeaderView(generic.FormView):
+class HeaderView(generic.FormView): # view which linked with the form HeaderForm
     form_class = HeaderForm
     model = AdditionalHeaderInfo
     template_name = 'polls/detail.html'
-    sucess_url = '/polls/search/'
-
-def search(request):
-    query_string = ''
-    found_entries = None
-    if ('q' in request.GET) and request.GET['q'].strip():
-        query_string = request.GET['q']
-
-        entry_query = get_query(query_string, ['PatientID',])
-
-        found_entries = Entry.objects.filter(entry_query).order_by('-PatientID')
-
-    return render_to_response('polls/results.html',
-                          { 'query_string': query_string, 'found_entries': found_entries },
-                          context_instance=RequestContext(request))
+    sucess_url = '/header/new/' #go to /polls/header/new/

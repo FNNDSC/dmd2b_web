@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'^(?P<pk>[1-2]+)/$', views.Series.as_view(), name='serie'),
     url(r'^(?P<pk>[2-3]+)/$', views.Header.as_view(), name='header'),
     url(r'^header/new/$', views.HeaderView.as_view()),
-    url(r'^search/$', search, name='polls-search')
+    #url(r'^search/$', search, name='polls-search')
 ]
