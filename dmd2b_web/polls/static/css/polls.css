@@ -1,0 +1,18 @@
+h1  {
+    color: #FCA205;
+    font-family: 'Lobster';
+}
+
+h1 a {
+    color: #FCA205;
+    font-family: 'Lobster';
+}
+
+li  {
+    color: blue;
+}
+
+body {
+    padding-left: 20px;
+    background: white url("images/suicide_squad_trailer_background_by_lphobius-d9z10lu.png")
+}

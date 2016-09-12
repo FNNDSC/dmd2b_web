@@ -1,0 +1,29 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>dmd2b blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+    </head>
+    <body>
+      <div class="page-header">
+        <h1><a href="/polls/3/">Series Details</a></h1>
+      </div>
+
+        {% if object_list %}
+            <ul>
+            {% for serie in object_list %}
+                <h1>{{ serie.patient }}</h1>
+                <li>{{ serie.study }}</li>
+                <li>{{ serie.SeriesID }}</li>
+                <li>{{ serie.SeriesDescription }}</li>
+                <li>{{ serie.Modality }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No polls are available.</p>
+        {% endif %}
+    </body>
+</html>

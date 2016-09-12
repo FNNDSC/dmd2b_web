@@ -1,0 +1,22 @@
+{
+    "metadata_version" : 1.0,
+    "releases_url" : "ftp://ftp.iana.org/tz/releases/",
+    "tzversion": "2015d",
+    "tzdata_file" : "tzdata2015d.tar.gz",
+    "tzdata_file_sha512" : "37b5aa3c5e0d601c8b20fac08d7267c398a836e4190ef85625d5e86a806ba1baceb2315ba81a9a6c854eae4fce40e9c8f90cf5adade3f48ad443f77c221d8983",
+    "zonegroups" : [
+        "africa",
+        "antarctica",
+        "asia",
+        "australasia",
+        "europe",
+        "northamerica",
+        "southamerica",
+        "pacificnew",
+        "etcetera",
+        "systemv",
+        "factory",
+        "backzone",
+        "backward"]
+}
+

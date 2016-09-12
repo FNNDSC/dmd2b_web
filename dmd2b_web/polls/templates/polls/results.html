@@ -1,0 +1,9 @@
+<h1>{{ patient.patientID }}</h1>
+
+<ul>
+{% for study in patient.study_set.all %}
+    <li>{{ study.StudyID }} -- {{ study.StudyDescription }} studies{{ study.StudyDescription|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' patient.id %}">Choose again?</a>
