@@ -38,7 +38,7 @@ class Header(generic.ListView):
     def get_queryset(self):
         return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE')
 
-class HeaderView(generic.FormView): # view which linked with the form HeaderForm
+class HeaderView(generic.FormView): # HeaderView is linked with the form HeaderForm
     form_class = HeaderForm
     model = AdditionalHeaderInfo
     template_name = 'polls/detail.html'
