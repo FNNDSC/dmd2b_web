@@ -15,7 +15,7 @@
         {% if object_list %}
             <ul>
             {% for patient in object_list %}
-                <h1><a href="[% url 'polls:study' %]">{{ patient.PatientID }}</a></h1>
+                <h1><a href="[% url 'polls:detail' patient.id %]">{{ patient.PatientID }}</a></h1>
                 <li>{{ patient.PatientSex }}</li>
                 <li>{{ patient.PatientBirthDate }}</li>
                 <li>{{ patient.Age_Days }}</li>

@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="{% static 'css/polls.css' %}">
 
-<form action="/polls/3/" method="GET">
+<form action="/polls/" method="GET">
 {% csrf_token %}
 {{form.as_ul}}
 <input type="search" name="q" placeholder="Your search">

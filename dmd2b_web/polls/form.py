@@ -21,4 +21,4 @@ class SeriesForm(forms.ModelForm):
 class HeaderForm(forms.ModelForm):
     class Meta:
         model = AdditionalHeaderInfo
-        fields = ('ProtocolName', 'dimensions', 'PrimarySliceDirection', 'VoxelSizes', 'fov', 'PatientID',)
+        fields = ('ProtocolName', 'dimensions', 'PrimarySliceDirection', 'VoxelSizes', 'fov', 'PatientID')

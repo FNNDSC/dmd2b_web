@@ -1,5 +1,5 @@
-from django.http import HttpResponseRedirect, Http404, HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.http import *
+from django.shortcuts import *
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.utils import timezone
@@ -22,6 +22,7 @@ class Study(generic.ListView):
     template_name = 'polls/study.html'
     context_object_name = 'object_list'
     def get_queryset(self):
+        #return PatientDetails.objects.order_by('-PatientBirthDate')
         return StudyDetails.objects.filter(StudyDescription__contains='MR-Brain w/o Contrast').order_by('-StudyDate')
 
 class Series(generic.ListView):
@@ -38,9 +39,12 @@ class Header(generic.ListView):
     def get_queryset(self):
         return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE')
 
-class StudyView(generic.DetailView):
-    model = PatientDetails
-    context_object_name = 'object_list'
+#class StudyView(generic.DetailView):
+    #model = PatientDetails
+    #template_name = '/polls/results.html'
+    #context_object_name = 'object_list'
+    #def get_queryset(self):
+        #return PatientDetails.objects.filter(PatientBirthDate__lte=timezone.now())
 
 class HeaderView(generic.FormView): # HeaderView is linked with the form HeaderForm
     form_class = HeaderForm
