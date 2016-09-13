@@ -11,6 +11,7 @@ class PatientDetails(models.Model):
     Age_Days = models.CharField(max_length=25)
     PatientName = models.CharField(max_length=25)
     PatientReportedAge = models.CharField(max_length=25)
+
     def __str__(self):
         return "{0}".format(self.PatientID)
 
@@ -19,6 +20,7 @@ class StudyDetails(models.Model):
     StudyID = models.CharField(max_length=100)
     StudyDescription = models.CharField(max_length=100)
     StudyDate = models.DateTimeField(max_length=25)
+
     def __str__(self):
         return "{0}".format(self.StudyID)
 
@@ -28,6 +30,7 @@ class SeriesDetails(models.Model):
     SeriesID = models.CharField(max_length=100)
     SeriesDescription = models.CharField(max_length=100)
     Modality = models.CharField(max_length=25)
+
     def __str__(self):
         return "{0}".format(self.SeriesID)
 
@@ -38,5 +41,6 @@ class AdditionalHeaderInfo(models.Model):
     VoxelSizes = models.CharField(max_length=100)
     fov = models.CharField(max_length=50)
     PatientID = models.CharField(max_length=25)
+    
     def __str__(self):
         return "{0}".format(self.PatientID)
