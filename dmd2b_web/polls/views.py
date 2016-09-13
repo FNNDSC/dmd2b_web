@@ -16,6 +16,7 @@ class Patient(generic.ListView):
     context_object_name = 'object_list'
     def get_queryset(self):
         return PatientDetails.objects.order_by('-PatientBirthDate')
+        #return PatientDetails.objects.get(Q(PatientName__startswith='R')|Q(PatientName__startswith='P'))
 
 class Study(generic.ListView):
     #model = PatientDetails
@@ -39,12 +40,17 @@ class Header(generic.ListView):
     def get_queryset(self):
         return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE')
 
-#class StudyView(generic.DetailView):
-    #model = PatientDetails
-    #template_name = '/polls/results.html'
-    #context_object_name = 'object_list'
-    #def get_queryset(self):
-        #return PatientDetails.objects.filter(PatientBirthDate__lte=timezone.now())
+class StudyView(generic.FormView):
+    form_class = StudyForm
+    model = StudyDetails
+    template_name = 'polls/detail.html'
+    sucess_url = '/study/new/'
+
+class SeriesView(generic.FormView):
+    form_class = SeriesForm
+    model = SeriesDetails
+    template_name = 'polls/detail.html'
+    sucess_url = '/serie/new/'
 
 class HeaderView(generic.FormView): # HeaderView is linked with the form HeaderForm
     form_class = HeaderForm
