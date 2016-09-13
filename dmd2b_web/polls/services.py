@@ -40,11 +40,14 @@ def retrieveDicomFiles():
     """
     lstFilesDCM = []
     for dirname, dirnames, filenames in os.walk('.', topdown=True, followlinks=True):
+
         for filename in filenames:
 
             if ".dcm" in filename.lower():
 
                 lstFilesDCM.append(os.path.join(dirname,filename))
+
+                
     return lstFilesDCM
 
 
@@ -61,6 +64,7 @@ def extractDicomData(inputImageFileList):
 
         patientDetails = {}
         patientID = str(pydicomFileData.PatientID)
+
         if patientID in data:
             ''
         else:
@@ -90,8 +94,10 @@ def extractDicomData(inputImageFileList):
 
         studyDetails = {}
         studyID=''
+
         if pydicomFileData[0x0020000d]:
             studyID = str(pydicomFileData.StudyInstanceUID)
+
             if studyID in data[patientID]["studies"]:
                 ''
             else:
@@ -106,6 +112,7 @@ def extractDicomData(inputImageFileList):
 
             seriesDetails = {}
             seriesID = str(pydicomFileData.SeriesInstanceUID)
+
             if seriesID in data[patientID]["studies"][studyID]["series"]:
                 ''
             else:
@@ -192,6 +199,7 @@ def saveTodb(data):
         pa.PatientBirthDate = patient['patientInfo']['PatientBirthDate']
         pa.Age_Days = patient['patientInfo']['Age_Days']
         pa.PatientName = patient['patientInfo']['PatientName']
+
         try:
             pa.PatientReportedAge = patient['patientInfo']['PatientReportedAge']
         except KeyError:
