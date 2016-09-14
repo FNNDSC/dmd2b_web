@@ -12,6 +12,7 @@ from polls.form import *
 
 
 
+######################### Generic View for each model ##########################
 
 class PatientList(generic.ListView): # it returns a list of patient
     #model = PatientDetails
@@ -53,6 +54,8 @@ class HeaderList(generic.ListView):
         return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE')
 
 
+
+############################ View for the forms ################################
 
 class PatientFormView(generic.FormView): # PatientFormView is linked with the form PatientForm
     form_class = PatientForm
