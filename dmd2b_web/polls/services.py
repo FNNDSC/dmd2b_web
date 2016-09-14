@@ -262,7 +262,10 @@ def saveToFile(headerInfoList, outputFile): # This is not the best solution
     output.close()
 
     with open('/net/tautona/neuro/labs/grantlab/users/yves.verpillieux/DicomInfoExtraction/output/TestingOutputFile_AdditionalInfo.csv', 'r') as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=',', lineterminator='\n', fieldnames=Fieldnames) # Read the csv file which is stored in the folder "output"
+
+        # Read the csv file which is stored in the folder "output"
+        reader = csv.DictReader(csvfile, delimiter=',', lineterminator='\n', fieldnames=Fieldnames)
+
         for row in reader:
 
             hi = AdditionalHeaderInfo()
@@ -298,6 +301,7 @@ def savedb(headerInfoList):
 
         hi.save()
 '''
+
 
 if __name__ == "__main__":
 
