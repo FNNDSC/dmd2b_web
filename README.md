@@ -30,8 +30,9 @@ mysql -u root -p
 
 Now create a local database on MySQL's shell:
 ```
-CREATE DATABASE dmd2b_web_db CHARACTER SET utf8;
+CREATE DATABASE dmd2b_web_db CHARACTER SET UTF8;
 ```
+This ensures all tables and columns will use UTF-8 by default.
 
 Next, we will create a database user which we will use to connect to and interact with the database. Set the password to something strong and secure:
 ```
