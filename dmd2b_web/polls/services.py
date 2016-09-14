@@ -10,6 +10,7 @@ import django
 
 from django.db import models
 
+# Import the project's settings
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append("/neuro/users/yves.verpillieux/DicomInfoExtraction/prg/dmd2b_web")
 os.environ["DJANGO_SETTINGS_MODULE"] = "dmd2b_web.settings"
