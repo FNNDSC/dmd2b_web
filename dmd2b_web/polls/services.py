@@ -50,6 +50,7 @@ def retrieveDicomFiles():
     return lstFilesDCM
 
 
+
 ############################ Extract the values ################################
 
 
@@ -132,7 +133,7 @@ def extractDicomData(inputImageFileList):
     return data # it returns several dictionaries saved linearly
 
 
-######################## Additional Header Info ################################
+######################## Extract Additional Header Info ########################
 
 def extractAdditionalHeaderInfo():
     lstFilesDCM = []
