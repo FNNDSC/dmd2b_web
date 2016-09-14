@@ -20,6 +20,7 @@ class Patient(generic.ListView):
 
 class Study(generic.ListView):
     #model = PatientDetails
+    #model = StudyDetails
     template_name = 'polls/study.html'
     context_object_name = 'object_list'
     def get_queryset(self):
