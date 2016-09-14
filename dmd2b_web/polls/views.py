@@ -19,15 +19,12 @@ class PatientList(generic.ListView): # it returns
     context_object_name = 'object_list'
 
     def get_queryset(self):
-        #return PatientDetails.objects.order_by('-PatientBirthDate')
-
-        #The following command uses an 'OR' logic search
-        return PatientDetails.objects.filter(Q(PatientName__startswith='T')|Q(PatientName__startswith='P'))
+        #The following command uses an 'AND' logic search and an 'OR' logic search which is represented by '|'
+        return PatientDetails.objects.order_by('-PatientBirthDate').filter(Q(PatientName__startswith='T')|Q(PatientName__startswith='P'))
 
 
 
 class StudyList(generic.ListView):
-    #model = PatientDetails
     #model = StudyDetails
     template_name = 'polls/study.html'
     context_object_name = 'object_list'
@@ -58,7 +55,7 @@ class HeaderList(generic.ListView):
 
 
 
-class StudyView(generic.FormView):
+class StudyView(generic.FormView): # StudyView is linked with the form StudyForm
     form_class = StudyForm
     model = StudyDetails
     template_name = 'polls/detail.html'
@@ -66,7 +63,7 @@ class StudyView(generic.FormView):
 
 
 
-class SeriesView(generic.FormView):
+class SeriesView(generic.FormView): # SeriesView is linked with the form SeriesForm
     form_class = SeriesForm
     model = SeriesDetails
     template_name = 'polls/detail.html'
