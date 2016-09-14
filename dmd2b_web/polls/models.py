@@ -41,6 +41,6 @@ class AdditionalHeaderInfo(models.Model):
     VoxelSizes = models.CharField(max_length=100)
     fov = models.CharField(max_length=50)
     PatientID = models.CharField(max_length=25)
-    
+
     def __str__(self):
         return "{0}".format(self.PatientID)

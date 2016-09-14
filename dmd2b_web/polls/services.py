@@ -27,8 +27,6 @@ print (os.getcwd())
 
 outputDir = os.path.join(r"/net/tautona/neuro/labs/grantlab/users/yves.verpillieux/DicomInfoExtraction", "output")
 
-#dicomDirTopLevel = os.path.join(os.getcwd(), "SammyTestData")
-
 sys.path.append(pydicomdir)
 
 
@@ -47,7 +45,7 @@ def retrieveDicomFiles():
 
                 lstFilesDCM.append(os.path.join(dirname,filename))
 
-                
+
     return lstFilesDCM
 
 
@@ -71,7 +69,7 @@ def extractDicomData(inputImageFileList):
             patientDetails["PatientName"]= str.replace(str(pydicomFileData.PatientName),'^',' ')
             patientDetails["PatientSex"]=pydicomFileData.PatientSex
 
-            # some problems with that tag, it miss some values, possibility to see an empty block in the database
+            # some problems with that tag, it miss some values in the DICCOM files, possibility to see an empty block in the database
             try:
                 if pydicomFileData[0x00101010]:
                     patientDetails["PatientReportedAge"]=pydicomFileData.PatientAge
@@ -211,7 +209,7 @@ def saveTodb(data):
 
         studies = patient['studies'] # access to studies of that patient
 
-        for studyID in studies: #extract values of the key studyID from studies
+        for studyID in studies: # extract values of the key studyID from studies
 
             study = studies[studyID]
             sa = StudyDetails()
@@ -228,7 +226,7 @@ def saveTodb(data):
 
             series = study['series'] # access to series of that study
 
-            for serieID in series: #extract values of the key serieID from series
+            for serieID in series: # extract values of the key serieID from series
 
                 serie = series[serieID]
                 se = SeriesDetails()
