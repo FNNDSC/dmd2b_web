@@ -243,7 +243,7 @@ def saveTodb(data):
 
 ############## Saving Additional Header Info in a django database ##############
 
-def saveToFile(headerInfoList, outputFile): # This is not the best solution
+def saveDB(headerInfoList, outputFile): # This is not the best solution
     """Writes to a csv file.
     """
     #print(headerInfoList)
@@ -255,13 +255,15 @@ def saveToFile(headerInfoList, outputFile): # This is not the best solution
 
     wr = csv.DictWriter(output, delimiter=',', lineterminator='\n', fieldnames=Fieldnames)
     wr.writeheader()
-    for d in [x for x in headerInfoList if x.keys() == Fieldnames]:
-        wr.writerow(d)
 
+    for d in [x for x in headerInfoList if x.keys() == Fieldnames]:
+
+        wr.writerow(d)
 
     output.close()
 
-    with open('/net/tautona/neuro/labs/grantlab/users/yves.verpillieux/DicomInfoExtraction/output/TestingOutputFile_AdditionalInfo.csv', 'r') as csvfile:
+
+    with open('/net/tautona/neuro/labs/grantlab/users/yves.verpillieux/DicomInfoExtraction/output/Header.csv', 'r') as csvfile:
 
         # Read the csv file which is stored in the folder "output"
         reader = csv.DictReader(csvfile, delimiter=',', lineterminator='\n', fieldnames=Fieldnames)
@@ -306,7 +308,7 @@ def savedb(headerInfoList):
 if __name__ == "__main__":
 
     saveTodb(extractDicomData(retrieveDicomFiles()))
-    saveToFile(extractAdditionalHeaderInfo(),'TestingOutputFile_AdditionalInfo')
+    saveDB(extractAdditionalHeaderInfo(),'Header')
     #savedb(extractAdditionalHeaderInfo())
 
     print('Done!')
