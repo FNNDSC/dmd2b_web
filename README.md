@@ -71,11 +71,15 @@ sudo apt-get install pydicom
 
 # To see the results on the web page
 Go to /dmd2b_web/
+
 Then do : ```python manage.py runserver```
+
 Then go to : ```127.0.0.1:8000/polls/```
 ## Or
 Go to /dmd2b_web/
+
 Then do : ```python manage.py runserver (Your IP adress):8000```
+
 Then go to : ```(Your IP adress):8000/polls/```
 
 Finally, you will see the webpage, then you just click on the webpage's header to see the results in the other pages.
