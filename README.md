@@ -11,9 +11,16 @@ In the folder /dmd2b_web/polls/, the file "services.py" is a new version of "Dic
 It extracts the values from DICOM files and then saves them in a Django database created with the models.
 
 # To run "services" program
-Go to /dmd2b_web/polls/ and do : python3 services.py
+Go to /dmd2b_web/polls/ :
 
-WARNING : you surely need to change the path to the "dicom" folder which contains the DICOM files
+WARNING : Edit the following lines in services.py to point to "dicom" and "output" directories
+```
+os.chdir(/the/path/to/dicom/)
+
+outputDir = (/the/path/to/output")
+```
+
+And then do : ```python3 services.py```
 
 # Development database
 To create the development database, do the followings:
@@ -55,6 +62,6 @@ DATABASES = {
 }
 ```
 
-# To see the results
+# To see the results on the web page
 Go to 127.0.0.1:8000/polls/
 And then, you just click on the webpage header to see the results in the other pages.
