@@ -130,10 +130,10 @@ def extractSeriesDetails(inputImageFile):
             else:
                 seriesDetails["StudyID"]=''
 
-         #   if ds[0x00181030]:
-         #      seriesDetails["ProtocolName"]=ds.ProtocolName
-       #     else:
-         #      seriesDetails["ProtocolName"]=''
+            if ds[0x00181030]:
+               seriesDetails["ProtocolName"]=ds.ProtocolName
+            else:
+               seriesDetails["ProtocolName"]=''
 
         #    if ds[0x00540500]:
         #        seriesDetails["SliceProgressionDirection"]=ds.SliceProgressionDirection
