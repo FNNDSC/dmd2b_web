@@ -70,7 +70,8 @@ def extractDicomData(inputImageFileList):
             patientDetails["PatientName"]= str.replace(str(pydicomFileData.PatientName),'^',' ')
             patientDetails["PatientSex"]=pydicomFileData.PatientSex
 
-            # some problems with that tag, it miss some values in the DICCOM files, possibility to see an empty block in the database
+            # some problems with that tag, it miss some values in the DICCOM files
+            # Possibility to see an empty block in the database
             try:
                 if pydicomFileData[0x00101010]:
                     patientDetails["PatientReportedAge"]=pydicomFileData.PatientAge
