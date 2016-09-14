@@ -41,6 +41,19 @@ Flush the changes so that they will be available during the current session:
 FLUSH PRIVILEGES;
 ```
 
+Then, you will need to change the database settings :
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dmd2b_web_db',
+        'USER': 'isen',
+        'PASSWORD': 'yves',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+```
 
 # To see the results
 Go to 127.0.0.1:8000/polls/

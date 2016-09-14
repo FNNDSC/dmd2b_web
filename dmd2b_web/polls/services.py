@@ -33,6 +33,7 @@ sys.path.append(pydicomdir)
 from pydicom import dicomio
 
 
+
 def retrieveDicomFiles():
     """Retrieves all DICOM files stored in folders.
     """

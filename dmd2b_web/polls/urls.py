@@ -14,9 +14,11 @@ urlpatterns = [
 
     url(r'^(?P<pk>[2-3]+)/$', views.HeaderList.as_view(), name='header'),
 
-    url(r'^study/new/$', views.StudyView.as_view(), name='detail'),
+    url(r'^patient/new/$', views.PatientFormView.as_view(), name='form'),
 
-    url(r'^serie/new/$', views.SeriesView.as_view(), name='detail'),
+    url(r'^study/new/$', views.StudyFormView.as_view(), name='form'),
 
-    url(r'^header/new/$', views.HeaderView.as_view(), name='detail'),
+    url(r'^serie/new/$', views.SeriesFormView.as_view(), name='form'),
+
+    url(r'^header/new/$', views.HeaderFormView.as_view(), name='form'),
 ]

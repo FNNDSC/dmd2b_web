@@ -13,14 +13,14 @@ from polls.form import *
 
 
 
-class PatientList(generic.ListView): # it returns
+class PatientList(generic.ListView): # it returns a list of patient
     #model = PatientDetails
     template_name = 'polls/patient.html'
     context_object_name = 'object_list'
 
     def get_queryset(self):
         #The following command uses an 'AND' logic search and an 'OR' logic search which is represented by '|'
-        return PatientDetails.objects.order_by('-PatientBirthDate').filter(Q(PatientName__startswith='T')|Q(PatientName__startswith='P'))
+        return PatientDetails.objects.order_by('-PatientBirthDate').filter(Q(PatientName__startswith='P')|Q(PatientName__startswith='R'))
 
 
 
@@ -30,7 +30,6 @@ class StudyList(generic.ListView):
     context_object_name = 'object_list'
 
     def get_queryset(self):
-        #return PatientDetails.objects.order_by('-PatientBirthDate')
         return StudyDetails.objects.filter(StudyDescription__contains='MR-Brain w/o Contrast').order_by('-StudyDate')
 
 
@@ -55,24 +54,32 @@ class HeaderList(generic.ListView):
 
 
 
-class StudyView(generic.FormView): # StudyView is linked with the form StudyForm
+class PatientFormView(generic.FormView): # PatientFormView is linked with the form PatientForm
+    form_class = PatientForm
+    model = PatientDetails
+    template_name = 'polls/form.html'
+    sucess_url = '/patient/new/' #go to /polls/patient/new/
+
+
+
+class StudyFormView(generic.FormView): # StudyFormView is linked with the form StudyForm
     form_class = StudyForm
     model = StudyDetails
-    template_name = 'polls/detail.html'
+    template_name = 'polls/form.html'
     sucess_url = '/study/new/' #go to /polls/study/new/
 
 
 
-class SeriesView(generic.FormView): # SeriesView is linked with the form SeriesForm
+class SeriesFormView(generic.FormView): # SeriesFormView is linked with the form SeriesForm
     form_class = SeriesForm
     model = SeriesDetails
-    template_name = 'polls/detail.html'
+    template_name = 'polls/form.html'
     sucess_url = '/serie/new/' #go to /polls/serie/new/
 
 
 
-class HeaderView(generic.FormView): # HeaderView is linked with the form HeaderForm
+class HeaderFormView(generic.FormView): # HeaderFormView is linked with the form HeaderForm
     form_class = HeaderForm
     model = AdditionalHeaderInfo
-    template_name = 'polls/detail.html'
+    template_name = 'polls/form.html'
     sucess_url = '/header/new/' #go to /polls/header/new/
