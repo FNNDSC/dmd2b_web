@@ -17,7 +17,6 @@ WARNING : you surely need to change the path to the "dicom" folder which contain
 
 # Development database
 To create the development database, do the followings:
-First connect to MySQL
 ```
 mysql -u root -p
 ```
