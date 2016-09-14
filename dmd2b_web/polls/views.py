@@ -20,6 +20,8 @@ class PatientList(generic.ListView): # it returns
 
     def get_queryset(self):
         #return PatientDetails.objects.order_by('-PatientBirthDate')
+
+        #The following command uses an 'OR' logic search
         return PatientDetails.objects.filter(Q(PatientName__startswith='T')|Q(PatientName__startswith='P'))
 
 
