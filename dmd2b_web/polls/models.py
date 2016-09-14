@@ -4,6 +4,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.timezone import now
 
+
 class PatientDetails(models.Model):
     PatientID = models.CharField(max_length=25)
     PatientSex = models.CharField(max_length=25)
@@ -15,6 +16,8 @@ class PatientDetails(models.Model):
     def __str__(self):
         return "{0}".format(self.PatientID)
 
+
+
 class StudyDetails(models.Model):
     patient = models.ForeignKey(PatientDetails, on_delete=models.CASCADE)
     StudyID = models.CharField(max_length=100)
@@ -23,6 +26,8 @@ class StudyDetails(models.Model):
 
     def __str__(self):
         return "{0}".format(self.StudyID)
+
+
 
 class SeriesDetails(models.Model):
     patient = models.ForeignKey(PatientDetails, on_delete=models.CASCADE)
@@ -33,6 +38,8 @@ class SeriesDetails(models.Model):
 
     def __str__(self):
         return "{0}".format(self.SeriesID)
+
+
 
 class AdditionalHeaderInfo(models.Model):
     ProtocolName = models.CharField(max_length=100)
