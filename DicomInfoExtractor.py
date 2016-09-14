@@ -187,33 +187,20 @@ def extractAdditionalHeaderInfo():
             if "PatientID" in xx:
                 inforDict["PatientID"]=''.join(xx[12:])
 
-
             if "Primary Slice Direction" in xx:
-                #print(xx[24:])
                 inforDict["PrimarySliceDirection"]=''.join(xx[24:])
 
             if "ProtocolName" in xx:
-
                 inforDict["ProtocolName"]=''.join(xx[14:])
-                print(xx)
 
             if "voxel sizes" in xx:
-
                 inforDict["VoxelSizes"]=''.join(xx[15:])
-                print(xx)
 
             if "fov" in xx:
                 inforDict["fov"]=''.join(xx[15:])
 
             if "dimensions" in xx:
-
                 inforDict["dimensions"]=''.join(xx[15:])
-
-            if "SeriesInstanceUID" in xx:
-                print(xx[19:])
-
-                inforDict["SeriesID"]=''.join(xx[19:])
-
 
 
         headerInfoList.append(inforDict)
