@@ -47,9 +47,10 @@ def retrieveDicomFiles():
 
                 lstFilesDCM.append(os.path.join(dirname,filename))
 
-
     return lstFilesDCM
 
+
+############################ Extract the values ################################
 
 
 def extractDicomData(inputImageFileList):
@@ -71,7 +72,7 @@ def extractDicomData(inputImageFileList):
             patientDetails["PatientName"]= str.replace(str(pydicomFileData.PatientName),'^',' ')
             patientDetails["PatientSex"]=pydicomFileData.PatientSex
 
-            # some problems with that tag, it miss some values in the DICCOM files
+            # some problems with that following tag, it miss some values in the DICOM files
             # Possibility to see an empty block in the database
             try:
                 if pydicomFileData[0x00101010]:
@@ -180,7 +181,7 @@ def extractAdditionalHeaderInfo():
     return headerInfoList   # it returns a list of dictionary
 
 
-
+################### Saving the values in a django database #####################
 
 
 def saveTodb(data):
