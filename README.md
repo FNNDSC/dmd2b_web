@@ -83,4 +83,4 @@ Then do : ```python manage.py runserver (Your IP adress):8000```
 Then go to : ```(Your IP adress):8000/polls/```
 
 # Results
-Finally, you will see the webpage, then you just click on the webpage's header to see the results in the other pages.
+Finally, you will see the webpage, then you just click on the webpage's head link to see the results in the other pages.
