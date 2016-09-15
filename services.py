@@ -74,7 +74,7 @@ def extractDicomData(inputImageFileList):
             patientDetails["PatientSex"]=pydicomFileData.PatientSex
 
             # some problems with that following tag, it miss some values in the DICOM files
-            # Possibility to see an empty block in the database
+            # Possibility to see an empty block in the table in the column 'PatientReportedAge'
             try:
                 if pydicomFileData[0x00101010]:
                     patientDetails["PatientReportedAge"]=pydicomFileData.PatientAge
