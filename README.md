@@ -65,6 +65,7 @@ DATABASES = {
 }
 ```
 ## Dependencies:
+You need to install pydicom-0.9.9 and python3-dateutil:
 ```
 sudo apt-get install python3-dateutil
 
@@ -80,14 +81,11 @@ python manage.py createsuperuser
 ```
 Start the Django development server:
 
-Go to /dmd2b_web/
-
 Then do : ```python manage.py runserver```
 
 Then go to : ```127.0.0.1:8000/polls/```
-## Or
-Go to /dmd2b_web/
 
+## Or
 Then do : ```python manage.py runserver (Your IP adress):8000```
 
 Then go to : ```(Your IP adress):8000/polls/```
