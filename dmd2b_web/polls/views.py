@@ -12,7 +12,7 @@ from polls.form import *
 
 
 
-######################### Generic View for each model ##########################
+####################### Generic ListView for each model ########################
 
 class PatientList(generic.ListView): # it returns a list of patient
     #model = PatientDetails
