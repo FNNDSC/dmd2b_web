@@ -74,6 +74,12 @@ pip install pydicom
 ```
 
 # To see the results on the web page
+First create a system user to be able to do authenticated requests. We are going to create user "bob" with password "bob-pass":
+```
+python manage.py createsuperuser
+```
+Start the Django development server:
+
 Go to /dmd2b_web/
 
 Then do : ```python manage.py runserver```
