@@ -12,9 +12,7 @@ It extracts the values from DICOM files and then saves them in a Django database
 
 # Development environment
 ## To run "services" program
-Go to /dmd2b_web/polls/ :
-
-WARNING : Edit the following lines in services.py to point to "dicom" and "output" directories
+Edit the following lines in services.py to point to "dicom" and "output" directories
 ```
 os.chdir(/the/path/to/dicom/)
 
@@ -66,6 +64,8 @@ DATABASES = {
 ## Dependencies:
 ```
 sudo apt-get install python3-dateutil
+cd pydicom-0.9.9
+python3 setup.py install
 pip install pydicom
 ```
 
