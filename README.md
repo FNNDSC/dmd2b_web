@@ -10,6 +10,9 @@ You can access to my work by this path : /neuro/users/yves.verpillieux/DicomInfo
 In the folder /dmd2b_web/polls/, the file "services.py" is a new version of "DicomInfoExtraction.py" which belongs to dmd2b project.
 It extracts the values from DICOM files and then saves them in a Django database created with the models.
 
+# Prerequisite
+Python3 needs to be installed
+
 # Development environment
 ## To run "services" program
 Edit the following lines in services.py to point to "dicom" and "output" directories
@@ -64,6 +67,7 @@ DATABASES = {
 ## Dependencies:
 ```
 sudo apt-get install python3-dateutil
+
 cd pydicom-0.9.9
 python3 setup.py install
 pip install pydicom
