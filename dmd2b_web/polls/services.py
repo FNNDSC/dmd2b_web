@@ -120,6 +120,7 @@ def extractDicomData(inputImageFileList):
                 ''
             else:
                 seriesDetails["SeriesDescription"]=pydicomFileData.SeriesDescription
+
                 if pydicomFileData[0x00080060]:
                     seriesDetails["Modality"]=pydicomFileData.Modality
                 else:

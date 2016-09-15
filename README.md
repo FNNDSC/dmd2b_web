@@ -66,7 +66,7 @@ DATABASES = {
 ## Dependencies:
 ```
 sudo apt-get install python3-dateutil
-sudo apt-get install pydicom
+pip install pydicom
 ```
 
 # To see the results on the web page
