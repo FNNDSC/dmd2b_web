@@ -75,18 +75,18 @@ pip install pydicom
 ```
 
 # To see the results on the web page
-First create a system user to be able to do authenticated requests. We are going to create user "bob" with password "bob-pass":
+First create a system user to be able to do authenticated requests. We are going to create user "user" with password "password":
 ```
 python manage.py createsuperuser
 ```
 Start the Django development server:
 
-Then do : ```python manage.py runserver```
+Do : ```python manage.py runserver```
 
 Then go to : ```127.0.0.1:8000/polls/```
 
 ## Or
-Then do : ```python manage.py runserver (Your IP adress):8000```
+Do : ```python manage.py runserver (Your IP adress):8000```
 
 Then go to : ```(Your IP adress):8000/polls/```
 
