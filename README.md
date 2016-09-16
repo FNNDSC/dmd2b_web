@@ -78,6 +78,7 @@ DATABASES = {
 ```
 #To see the data
 Connect to MySQL, then do: ```SELECT dmd2b_web_db;```
+
 Finally do : ``` SELECT * FROM polls_seriesdetails;```
 
 # To see the results on the web page
