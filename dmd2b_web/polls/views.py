@@ -51,7 +51,7 @@ class HeaderList(generic.ListView):
     context_object_name = 'object_list'
 
     def get_queryset(self):
-        return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE').filter(Q(dimensions__contains='28 x 28 x 1 x 107')|Q(dimensions__contains='192 x 192 x 176'))
+        return AdditionalHeaderInfo.objects.filter(PrimarySliceDirection__contains='sagittal').filter(ProtocolName__contains='MEMPRAGE')
 
 
 

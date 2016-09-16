@@ -15,9 +15,19 @@ You will find the DICOM files in the path : ```/neuro/users/chris/data/```
 # Prerequisite
 Python3 needs to be installed
 
+## Dependencies:
+You need to install pydicom-0.9.9 and python3-dateutil:
+```
+sudo apt-get install python3-dateutil
+
+cd pydicom-0.9.9
+python3 setup.py install
+pip install pydicom
+```
+
 # Development environment
-## To run "services" program
-Edit the following lines in services.py to point to "dicom" and "output" directories
+## To add new data to DB
+Edit the following lines in "services.py" to point to "dicom" and "output" directories
 ```
 os.chdir(/the/path/to/dicom/)
 
@@ -66,15 +76,9 @@ DATABASES = {
     }
 }
 ```
-## Dependencies:
-You need to install pydicom-0.9.9 and python3-dateutil:
-```
-sudo apt-get install python3-dateutil
-
-cd pydicom-0.9.9
-python3 setup.py install
-pip install pydicom
-```
+#To see the data
+Connect to MySQL, then do: ```SELECT dmd2b_web_db;```
+Finally do : ``` SELECT * FROM polls_seriesdetails;```
 
 # To see the results on the web page
 First create a system user to be able to do authenticated requests. We are going to create user "user" with password "password":
