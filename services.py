@@ -193,7 +193,7 @@ def saveTodb(data):
 
 ############### Saving Patient Details in a django database ####################
 
-    for patientID in data: #extract the key patientID from data
+    for patientID in data: # extract values of the key "patientID" from "data"
 
         patient = data[patientID]
         pa = PatientDetails()
@@ -213,9 +213,9 @@ def saveTodb(data):
 
 ################ Saving Study Details in a django database #####################
 
-        studies = patient['studies'] # access to studies of that patient
+        studies = patient['studies'] # access to the studies of that patient
 
-        for studyID in studies: # extract values of the key studyID from studies
+        for studyID in studies: # extract values of the key "studyID" from "studies"
 
             study = studies[studyID]
             sa = StudyDetails()
@@ -230,9 +230,9 @@ def saveTodb(data):
 
 ################ Saving Series Details in a django database ####################
 
-            series = study['series'] # access to series of that study
+            series = study['series'] # access to the series of that study
 
-            for serieID in series: # extract values of the key serieID from series
+            for serieID in series: # extract values of the key "serieID" from "series"
 
                 serie = series[serieID]
                 se = SeriesDetails()
