@@ -21,7 +21,7 @@ You need to install pydicom-0.9.9 and python3-dateutil:
 sudo apt-get install python3-dateutil
 
 cd pydicom-0.9.9
-python3 setup.py install
+python setup.py install
 pip install pydicom
 ```
 
