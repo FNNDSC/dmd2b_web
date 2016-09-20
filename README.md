@@ -27,8 +27,10 @@ pip install pydicom
 
 # Development environment
 ## To add new data to DB
-Edit the following lines in "services.py" to point to "dicom" and "output" directories
+Edit the following lines in "services.py" to point to "dicom", "output" and "dmd2_web" project directories
 ```
+sys.path.append("/neuro/users/.../")
+
 os.chdir(/the/path/to/dicom/)
 
 outputDir = (/the/path/to/output")
