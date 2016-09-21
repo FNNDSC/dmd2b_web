@@ -18,6 +18,8 @@ Python3 and Django1.9 need to be installed
 ## Dependencies:
 You need to install pydicom-0.9.9 and python3-dateutil:
 ```
+sudo apt-get update
+
 sudo apt-get install python3-dateutil
 
 cd pydicom-0.9.9
