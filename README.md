@@ -13,7 +13,7 @@ It extracts the values from DICOM files and then saves them in a Django database
 You will find the DICOM files in the path : ```/neuro/users/chris/data/```
 
 # Prerequisite
-Python3 needs to be installed
+Python3 and Django1.9 need to be installed
 
 ## Dependencies:
 You need to install pydicom-0.9.9 and python3-dateutil:
