@@ -8,7 +8,7 @@ from django import forms
 from django.db.models import Q
 
 from polls.models import PatientDetails, StudyDetails, SeriesDetails, AdditionalHeaderInfo
-from polls.form import *
+from polls.form import PatientForm, StudyForm, SeriesForm, HeaderForm, PatientSearchForm
 
 
 
