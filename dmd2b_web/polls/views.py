@@ -55,6 +55,39 @@ class HeaderList(generic.ListView):
 
 
 
+class PatientSearchView(generic.ListView):
+    """This listview can be filtered thanks to the url querystring parameter.
+    We could have inherited from PatientList view, bust for the sake of simplicty, it
+    is implemented as this."""
+
+    model = PatientDetails
+    template_name = 'polls/patient-search.html'
+
+    def get_filtering(self):
+        """Get the optional filtering value (see PatientSearchForm)"""
+        return self.request.GET.get('search', None)
+
+    def get_queryset(self):
+        """If we get a querystring parameter, we filter the queryset, else we return all Patients
+        ordered by reverse BirthDate."""
+
+        qs = super().get_queryset()
+        filtering = self.get_filtering()
+        if filtering:
+            qs = qs.filter(PatientName__startswith=filtering)
+        return qs.order_by('-PatientBirthDate')
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        # We inject a form instance and the query parameter to display in template.
+        # we could pass an initial kwarg to the form iot display que query param
+        # in the search field
+        ctx.update({'search_form': PatientSearchForm(),
+                    'search_query': self.get_filtering()})
+        return ctx
+    
+    
+
 ############################ View for the forms ################################
 
 class PatientFormView(generic.FormView): # PatientFormView is linked with the form PatientForm
@@ -86,3 +119,11 @@ class HeaderFormView(generic.FormView): # HeaderFormView is linked with the form
     model = AdditionalHeaderInfo
     template_name = 'polls/form.html'
     sucess_url = '/header/new/' #go to /polls/header/new/
+    
+    
+    
+class PatientStandaloneSearchView(generic.FormView):
+    """Basic view to display a search form."""
+    form_class = PatientSearchForm
+    template_name = 'polls/patient-standalone-search.html'
+
