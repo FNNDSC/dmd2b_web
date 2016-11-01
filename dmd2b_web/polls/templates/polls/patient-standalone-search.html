@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>dmd2b blog</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet"
+          type="text/css">
+    <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+</head>
+<body>
+<div class="page-header">
+</div>
+<form action="{% url 'polls:patient-search' %}" method="get">
+    {{ form.as_p }}
+    <button>Search</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>dmd2b blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/polls.css' %}">
+    </head>
+    <body>
+      <div class="page-header">
+        <h1><a href="/polls/1/">Patient Details</a></h1>
+      </div>
+      <form action="" method="get">
+          {{ search_form.as_p }}
+          <button>Search</button>
+      </form>
+      {%  if search_query %}
+        <strong>Your search for: "{{ search_query }}" returned {{ object_list.count }} result{{ object_list.count|pluralize }}</strong>
+          <a href="{% url 'polls:patient-search'%}">Reset search</a>
+      {% endif %}
+        {% if object_list %}
+            <ul>
+            {% for patient in object_list %}
+                <h1>{{ patient.PatientID }}</h1>
+                <li>{{ patient.PatientSex }}</li>
+                <li>{{ patient.PatientBirthDate }}</li>
+                <li>{{ patient.Age_Days }}</li>
+                <li>{{ patient.PatientName }}</li>
+                <li>{{ patient.PatientReportedAge }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No patients are available.</p>
+        {% endif %}
+    </body>
+</html>
