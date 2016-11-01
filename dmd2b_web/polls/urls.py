@@ -7,6 +7,12 @@ app_name = 'polls'
 
 urlpatterns = [
     url(r'^$', views.PatientList.as_view(), name='patient'),
+    
+    url(r'^patient-search/$', views.PatientSearchView.as_view(), name='patient-search'),
+    
+    url(r'^patient-standalone-search/$',
+        views.PatientStandaloneSearchView.as_view(),
+        name='patient-standalone-search'),
 
     url(r'^(?P<pk>[0-1]+)/$', views.StudyList.as_view(), name='study'),
 
